@@ -30,7 +30,6 @@ for (let i = 0; i < localStorage.length; i++) {
 
     document.body.append(localStorage.getItem(localStorage.key(i)));
 
-
 }
 
 potvrdi.addEventListener("click", e => {
