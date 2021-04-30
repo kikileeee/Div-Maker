@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forma</title>
+     <style>
+         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+        body{
+            background-image: url(img/gradient.jpg);
+            font-family: 'Montserrat', sans-serif;
+        }
+        .divforme form{
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+            margin: auto;
+            margin-top: 150px;
+            padding: 15px;
+            border-radius: 15px;
+            justify-content: space-between;
+            box-shadow: -4px 10px 24px -11px rgba(0,0,0,0.75);
+            background-color: rgba(255, 255, 255, 0.25);
+            transition: 300ms ease-in-out;
+        }
+        .divforme form:hover{
+            background-color: rgba(255, 255, 255, 0.30);
+        
+        }
+        .divforme label {
+            color: white;
+            font-size: 20px;
+        }
+        .divforme textarea{
+            border-radius: 15px;
+        }
+        .checkbox{
+            display: flex;
+            padding: 10px;
+            justify-content: flex-start;
+
+        }
+        .potvrdi, .brisi{
+            min-width: 20%;
+            margin: 10px auto auto auto;
+            padding: 20px;
+            border-radius: 15px;
+            
+            transition: 300ms ease-in-out;
+        }
+        .potvrdi:hover, .brisi:hover{
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+
+        #prostor{
+            display: flex;
+            margin: 10px;
+            flex-wrap: wrap;
+        }
+        .block {
+            width: 100px;
+            height: 100px;
+            margin: 15px;
+            border-radius: 15px;
+            box-shadow: -4px 10px 24px -11px rgba(0,0,0,0.75);
+            opacity: 0.8;
+            text-decoration: none;
+            list-style-type: none;
+        }
+        .block p {
+            padding: 10px;
+            margin: 0;
+            
+        }
+        .dugmat{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+<div class="divforme">
+    <form action="">
+        <label for="width">Sirina</label>
+        <input type="number" name="width"  id="width">
+
+        <label for="height">Visina</label>
+        <input type="number" name="height" id="height">
+
+        <label for="">Boja</label>
+        <select name="" id="boje">
+            <option value="white">Bela</option>
+            <option value="blue">Plava</option>
+            <option value="red">Crvena</option>
+            <option value="green">Zelena</option>
+        
+        
+        </select>
+        <div class="checkbox">
+            <label for="jabuka">Jabuka</label>
+            <input type="checkbox" id="jabuka" name="jabuka" value="jabuka">
+            <label for="kruska">Kruska</label>
+            <input type="checkbox" id="kruska" name="kruska" value="kruska">
+            <label for="limun">Limun</label>
+            <input type="checkbox" id="limun" name="limun" value="limun">
+        </div>
+
+        <label for="komentar">Ostavite komentar</label>
+        <textarea name="komentar" id="komentar" cols="30" rows="10"></textarea>
+        <div class="dugmat">
+            <input type="submit" value="Potvrdi" class='potvrdi'>
+            <button class="brisi" value="brisi">Obrisi</button>
+        </div> 
+    </form>
+
+</div>
+    <ul id="prostor">
+
+    </ul>
+</body>
+<script src="main.js"></script>
+</html>

@@ -1,0 +1,12 @@
+Note Keeper
+
+Form:
+Text field Naslov
+Select fields
+Checkbox fields
+Select field
+Textarea field Poruka
+
+Ispod forme se na stranicu dinamicki dodaje preko javaskripta div sa podacima iz forme nakon klika submit buttona.
+
+Koriscenje localStorage-a za cuvanje svih tih podataka koji se na reload tj ucitavanje stranice ucitaju i popune ponovo na stranicu.
