@@ -1,7 +1,7 @@
 // Load all already existing divs from localStorage on page load
-for (i = 0; i < localStorage.length; i++) {
-    kreirajDiv(JSON.parse(localStorage.getItem(localStorage.key(i))));
-}
+// for (i = 0; i < localStorage.length; i++) {
+//     kreirajDiv(JSON.parse(localStorage.getItem(localStorage.key(i))));
+// }
 
 function kreirajDiv(divPodaci) {
     let block = document.createElement('li');
@@ -33,7 +33,33 @@ function sacuvajULocalStorage(divPodaci) {
     //     divCollection.push(divPodaci);
     //     localstorage.set(JSON.stringify(divCollection));
 
+    if (localStorage.divCollection !== undefined) {
+        console.log('if')
 
+        let divCollection = JSON.parse(localStorage.getItem('divCollection'))
+        console.log(divCollection.length)
+        for (let i = 0; i < divCollection.length; i++) {
+
+            if (divPodaci.komentar == divCollection[i].komentar) {
+            }
+            else {
+                console.log('uslo')
+                divCollection = JSON.parse(localStorage.getItem('divCollection')) || [];
+                divCollection.push(divPodaci)
+                localStorage.setItem('divCollection', JSON.stringify(divCollection))
+                kreirajDiv(divPodaci)
+                break
+            }
+        }
+
+    }
+    else {
+        console.log('else')
+        let divCollection = JSON.parse(localStorage.getItem('divCollection')) || [];
+        divCollection.push(divPodaci)
+        console.log(divCollection)
+        localStorage.setItem('divCollection', JSON.stringify(divCollection))
+    }
 
 }
 
