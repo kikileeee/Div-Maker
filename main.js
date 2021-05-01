@@ -7,9 +7,6 @@ let parseobjekta = JSON.parse(localStorage.getItem('stringObjekta'));
 const parent = document.getElementById('prostor');
 const child = parent.childNodes;
 let brojac = 0;
-let divCollection = [];
-
-
 
 function kreirajDiv(divPodaci) {
     let block = document.createElement('li');
@@ -27,11 +24,12 @@ function kreirajDiv(divPodaci) {
 
 }
 
-let hta = localStorage.getItem(localStorage)
-console.log(divCollection)
-for (i = 0; i < divCollection.length; i++) {
-    
-    kreirajDiv(divCollection)
+for (i = 0; i < localStorage.length; i++) {
+    let divCollection = localStorage.key(i)
+
+    console.log(divCollection)
+
+    kreirajDiv(i)
 }
 
 potvrdi.addEventListener("click", e => {
@@ -43,13 +41,12 @@ potvrdi.addEventListener("click", e => {
         komentar: document.getElementById('komentar').value
     };
     kreirajDiv(divPodaci);
-    
-let divCollection = [];
+
+    let divCollection = [];
 
     function uploadPodataka(divPodaci) {
         divCollection.push(JSON.stringify(divPodaci));
         localStorage.setItem(divPodaci.komentar, divCollection)
-
     }
 
     if (divCollection.length > 0) {
@@ -74,7 +71,4 @@ let divCollection = [];
 obrisati.addEventListener("click", e => {
     localStorage.clear();
     parent.innerHTML = '';
-    // console.log(obrisati.textContent)
-    // console.log(obrisati.innerHTML)
-    // console.log(obrisati.outerHTML)
 })
