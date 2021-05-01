@@ -7,6 +7,7 @@ let parseobjekta = JSON.parse(localStorage.getItem('stringObjekta'));
 const parent = document.getElementById('prostor');
 const child = parent.childNodes;
 let brojac = 0;
+let divCollection = [];
 
 
 
@@ -26,6 +27,13 @@ function kreirajDiv(divPodaci) {
 
 }
 
+let hta = localStorage.getItem(localStorage)
+console.log(divCollection)
+for (i = 0; i < divCollection.length; i++) {
+    
+    kreirajDiv(divCollection)
+}
+
 potvrdi.addEventListener("click", e => {
 
     let divPodaci = {
@@ -35,8 +43,8 @@ potvrdi.addEventListener("click", e => {
         komentar: document.getElementById('komentar').value
     };
     kreirajDiv(divPodaci);
-
-    let divCollection = [];
+    
+let divCollection = [];
 
     function uploadPodataka(divPodaci) {
         divCollection.push(JSON.stringify(divPodaci));
