@@ -2,11 +2,12 @@
 const potvrdi = document.querySelector(".potvrdi");
 const obrisati = document.querySelector('.brisi');
 
-let parseobjekta = JSON.parse(localStorage.getItem('stringObjekta'))
+let parseobjekta = JSON.parse(localStorage.getItem('stringObjekta'));
 
 const parent = document.getElementById('prostor');
 const child = parent.childNodes;
-let brojac = 0
+let brojac = 0;
+
 
 
 function kreirajDiv(divPodaci) {
@@ -17,7 +18,6 @@ function kreirajDiv(divPodaci) {
 
     let para = document.createElement('p');
     let paratekst = document.createTextNode(divPodaci.komentar);
-
     block.style.width = divPodaci.sirina;
     block.style.height = divPodaci.visina;
 
@@ -26,38 +26,43 @@ function kreirajDiv(divPodaci) {
 
 }
 
-for (let i = 0; i < localStorage.length; i++) {
-
-    document.body.append(localStorage.getItem(localStorage.key(i)));
-
-}
-
 potvrdi.addEventListener("click", e => {
 
     let divPodaci = {
-        sirina: document.getElementById('width') + 'px',
-        duzina: document.getElementById('height') + 'px',
-        boja: document.getElementById('boje'),
-        komentar: document.getElementById('komentar')
+        sirina: document.getElementById('width').value + 'px',
+        duzina: document.getElementById('height').value + 'px',
+        boja: document.getElementById('boje').value,
+        komentar: document.getElementById('komentar').value
     };
     kreirajDiv(divPodaci);
-    localStorage.getItem
-    brojac += 1
-    let stringObjekta = JSON.stringify(objekat)
 
-    for (let i = 0; i < localStorage.length; i++) {
-        if (localStorage.getItem.name = 'stringObjekta' + brojac) {
-            brojac += 1
+
+
+    let divCollection = [];
+    console.log(divCollection)
+    if (localStorage.divCollection == []) {
+
+        let divCollection = JSON.parse(localStorage.getItem(divCollection))
+        for (i = 0; i < localStorage.length; i++) {
+
+            localStorage.getItem(divCollection[i])
+            if (divPodaci.komentar == divCollection.komentar) {
+
+                console.log('localStorage je ostao isti')
+            }
         }
-        else {
-            localStorage.setItem('stringObjekta' + brojac, stringObjekta)
-        }
-    } e.preventDefault();
+    }
+    else {
+        let divCollection = [];
+        divCollection.push(divPodaci)
+        localStorage.setItem(divPodaci.komentar, JSON.stringify(divCollection))
+        console.log('localStorage je promenjen')
+    }
 
 })
 
 obrisati.addEventListener("click", e => {
-    e.preventDefault();
+    localStorage.clear
     parent.innerHTML = '';
     // console.log(obrisati.textContent)
     // console.log(obrisati.innerHTML)
