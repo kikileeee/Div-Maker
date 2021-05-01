@@ -36,33 +36,35 @@ potvrdi.addEventListener("click", e => {
     };
     kreirajDiv(divPodaci);
 
-
-
     let divCollection = [];
-    console.log(divCollection)
-    if (localStorage.divCollection == []) {
 
+    function uploadPodataka(divPodaci) {
+        divCollection.push(JSON.stringify(divPodaci));
+        localStorage.setItem(divPodaci.komentar, divCollection)
+
+    }
+
+    if (divCollection.length > 0) {
+        console.log(localStorage.length)
         let divCollection = JSON.parse(localStorage.getItem(divCollection))
         for (i = 0; i < localStorage.length; i++) {
-
+            console.log(i)
             localStorage.getItem(divCollection[i])
-            if (divPodaci.komentar == divCollection.komentar) {
-
-                console.log('localStorage je ostao isti')
+            if (divCollection.komentar == divPodaci.komentar) {
             }
+            else {
+                uploadPodataka(divPodaci)
+            }
+            console.log(localStorage.divCollection)
         }
     }
     else {
-        let divCollection = [];
-        divCollection.push(divPodaci)
-        localStorage.setItem(divPodaci.komentar, JSON.stringify(divCollection))
-        console.log('localStorage je promenjen')
+        uploadPodataka(divPodaci)
     }
-
 })
 
 obrisati.addEventListener("click", e => {
-    localStorage.clear
+    localStorage.clear();
     parent.innerHTML = '';
     // console.log(obrisati.textContent)
     // console.log(obrisati.innerHTML)
