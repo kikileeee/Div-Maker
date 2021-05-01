@@ -1,12 +1,7 @@
-
-const potvrdi = document.querySelector(".potvrdi");
-const obrisati = document.querySelector('.brisi');
-
-let parseobjekta = JSON.parse(localStorage.getItem('stringObjekta'));
-
-const parent = document.getElementById('prostor');
-const child = parent.childNodes;
-let brojac = 0;
+// Load all already existing divs from localStorage on page load
+for (i = 0; i < localStorage.length; i++) {
+    kreirajDiv(JSON.parse(localStorage.getItem(localStorage.key(i))));
+}
 
 function kreirajDiv(divPodaci) {
     let block = document.createElement('li');
@@ -21,19 +16,30 @@ function kreirajDiv(divPodaci) {
 
     para.appendChild(paratekst);
     block.appendChild(para);
+}
+
+function sacuvajULocalStorage(divPodaci) {
+
+    //     if localstorage.divCollection exists
+    //     localstorage.get
+    //     let divCollection = JSON.parse
+    //     for loop, prolazimo kroz svaki element arraya tj objekat i pitas da li objekat.komentar = divPodaci.komentar, ako jeste onda se ne pravi ponovo, ako nije onda pravi
+
+    //     divCollection.push(divPodaci);
+    //     localstorage.set(JSON.stringify(divCollection));
+
+    // else napravi ga
+    //     let divCollection = [];
+    //     divCollection.push(divPodaci);
+    //     localstorage.set(JSON.stringify(divCollection));
+
+
 
 }
 
-for (i = 0; i < localStorage.length; i++) {
-    let divCollection = localStorage.key(i)
-
-    console.log(divCollection)
-
-    kreirajDiv(i)
-}
-
-potvrdi.addEventListener("click", e => {
-
+// Potvrdi button
+document.querySelector(".potvrdi").addEventListener("click", e => {
+    // Take values from from, create div on page and save it to localStorage
     let divPodaci = {
         sirina: document.getElementById('width').value + 'px',
         duzina: document.getElementById('height').value + 'px',
@@ -41,34 +47,11 @@ potvrdi.addEventListener("click", e => {
         komentar: document.getElementById('komentar').value
     };
     kreirajDiv(divPodaci);
+    sacuvajULocalStorage(divPodaci);
+});
 
-    let divCollection = [];
-
-    function uploadPodataka(divPodaci) {
-        divCollection.push(JSON.stringify(divPodaci));
-        localStorage.setItem(divPodaci.komentar, divCollection)
-    }
-
-    if (divCollection.length > 0) {
-        console.log(localStorage.length)
-        let divCollection = JSON.parse(localStorage.getItem(divCollection))
-        for (i = 0; i < localStorage.length; i++) {
-            console.log(i)
-            localStorage.getItem(divCollection[i])
-            if (divCollection.komentar == divPodaci.komentar) {
-            }
-            else {
-                uploadPodataka(divPodaci)
-            }
-            console.log(localStorage.divCollection)
-        }
-    }
-    else {
-        uploadPodataka(divPodaci)
-    }
-})
-
-obrisati.addEventListener("click", e => {
+// Brisi button
+document.querySelector('.brisi').addEventListener("click", e => {
     localStorage.clear();
-    parent.innerHTML = '';
-})
+    document.getElementById('prostor').innerHTML = '';
+});
