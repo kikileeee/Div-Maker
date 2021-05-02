@@ -1,7 +1,9 @@
 // Load all already existing divs from localStorage on page load
-// for (i = 0; i < localStorage.length; i++) {
-//     kreirajDiv(JSON.parse(localStorage.getItem(localStorage.key(i))));
-// }
+let divCollection = JSON.parse(localStorage.getItem('divCollection')) || []
+for (i = 0; i < divCollection.length; i++) {
+    kreirajDiv(divCollection[i]);
+
+}
 
 function kreirajDiv(divPodaci) {
     let block = document.createElement('li');
@@ -34,28 +36,25 @@ function sacuvajULocalStorage(divPodaci) {
     //     localstorage.set(JSON.stringify(divCollection));
 
     if (localStorage.divCollection !== undefined) {
-        console.log('if')
-
-        let divCollection = JSON.parse(localStorage.getItem('divCollection'))
-        console.log(divCollection.length)
-        for (let i = 0; i < divCollection.length; i++) {
-
-            if (divPodaci.komentar == divCollection[i].komentar) {
-            }
-            else {
-                console.log('uslo')
-                divCollection = JSON.parse(localStorage.getItem('divCollection')) || [];
-                divCollection.push(divPodaci)
-                localStorage.setItem('divCollection', JSON.stringify(divCollection))
-                kreirajDiv(divPodaci)
+        let pravi = false
+        for (i = 0; i < divCollection.length; i++) {
+            if (divCollection[i].komentar == divPodaci.komentar) {
+                pravi = false
                 break
             }
+            else {
+                pravi = true
+            }
         }
-
+        if (pravi == true) {
+            divCollection.push(divPodaci)
+            localStorage.setItem('divCollection', JSON.stringify(divCollection))
+            kreirajDiv(divPodaci)
+        }
+        else {
+        }
     }
     else {
-        console.log('else')
-        let divCollection = JSON.parse(localStorage.getItem('divCollection')) || [];
         divCollection.push(divPodaci)
         console.log(divCollection)
         localStorage.setItem('divCollection', JSON.stringify(divCollection))
