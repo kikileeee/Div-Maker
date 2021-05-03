@@ -11,6 +11,7 @@ function sacuvajULocalStorage(divPodaci) {
     for (i = 0; i < divCollection.length; i++) {
         if (divCollection[i].komentar == divPodaci.komentar) {
             pravi = false;
+            alert('Taj id vec postoji!');
             break;
         }
     }
@@ -27,13 +28,33 @@ function kreirajDiv(divPodaci) {
     document.querySelector("#prostor").append(block);
     block.style.backgroundColor = divPodaci.boja;
 
+    let slikaj = document.createElement('img');
+    slikaj.src = 'img/jabuka.png'
+    let slikak = document.createElement('img');
+    slikak.src = 'img/kruska.png'
+    let slikal = document.createElement('img');
+    slikal.src = 'img/limun.png'
+
     let para = document.createElement('p');
     let paratekst = document.createTextNode(divPodaci.komentar);
     block.style.width = divPodaci.sirina;
-    block.style.height = divPodaci.visina;
+    block.style.height = divPodaci.duzina;
 
     para.appendChild(paratekst);
     block.appendChild(para);
+
+    if (jabuka.checked) {
+        block.append(slikaj);
+        block.style.backgroundColor = divPodaci.jabuka;
+    }
+    if (kruska.checked) {
+        block.append(slikak);
+        block.style.backgroundColor = divPodaci.kruska;
+    }
+    if (limun.checked) {
+        block.append(slikal);
+        block.style.backgroundColor = divPodaci.limun;
+    }
 }
 
 // Potvrdi button
@@ -42,6 +63,9 @@ document.querySelector(".potvrdi").addEventListener("click", e => {
     let divPodaci = {
         sirina: document.getElementById('width').value + 'px',
         duzina: document.getElementById('height').value + 'px',
+        jabuka: document.getElementById('jabuka').checked,
+        kruska: document.getElementById('kruska').checked,
+        limun: document.getElementById('limun').checked,
         boja: document.getElementById('boje').value,
         komentar: document.getElementById('komentar').value
     };

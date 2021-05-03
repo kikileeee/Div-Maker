@@ -81,20 +81,28 @@
             opacity: 0.8;
             text-decoration: none;
             list-style-type: none;
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .block img {
+            width: 30%;
+            height: auto;
         }
 
         .block p {
             padding: 10px;
             margin: 0;
+            word-wrap: break-word;
 
+        }
+        .jabuka, .kruska, .limun {
+            width: 30%;
         }
 
         .dugmat {
             display: flex;
-            flex-wrap: wrappe;
-        }
-        .block img {
-            margin: auto;
+            flex-wrap: wrap;
         }
     </style>
 </head>
@@ -119,11 +127,11 @@
             </select>
             <div class="checkbox">
                 <label for="jabuka">Jabuka</label>
-                <input type="checkbox" id="jabuka" name="jabuka" value='img/jabuka.png'>
+                <input type="checkbox" id="jabuka" name="jabuka">
                 <label for="kruska">Kruska</label>
-                <input type="checkbox" id="kruska" name="kruska" value="img/kruska.png">
+                <input type="checkbox" id="kruska" name="kruska">
                 <label for="limun">Limun</label>
-                <input type="checkbox" id="limun" name="limun" value="img/limun.png">
+                <input type="checkbox" id="limun" name="limun">
             </div>
 
             <label for="komentar">Ostavite komentar</label>
