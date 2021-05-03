@@ -85,24 +85,51 @@
             display: flex;
             flex-wrap: wrap;
         }
+
         .block img {
             width: 30%;
             height: auto;
+            max-width: 50px;
         }
 
         .block p {
             padding: 10px;
             margin: 0;
             word-wrap: break-word;
+            color: orangered;
+            font-weight: bolder;
 
         }
-        .jabuka, .kruska, .limun {
+
+        .jabuka,
+        .kruska,
+        .limun {
             width: 30%;
+            padding: 3px;
         }
 
         .dugmat {
             display: flex;
             flex-wrap: wrap;
+        }
+
+        input[type=text],
+        select {
+            padding: 12px 20px;
+            margin: 8px 0;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        input[type=submit] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -126,15 +153,15 @@
 
             </select>
             <div class="checkbox">
-                <label for="jabuka">Jabuka</label>
                 <input type="checkbox" id="jabuka" name="jabuka">
-                <label for="kruska">Kruska</label>
+                <label for="jabuka">Jabuka</label>
                 <input type="checkbox" id="kruska" name="kruska">
-                <label for="limun">Limun</label>
+                <label for="kruska">Kruska</label>
                 <input type="checkbox" id="limun" name="limun">
+                <label for="limun">Limun</label>
             </div>
 
-            <label for="komentar">Ostavite komentar</label>
+            <label for="komentar">Napisite jedinstveni id:</label>
             <textarea name="komentar" id="komentar" cols="30" rows="10"></textarea>
             <div class="dugmat">
                 <input type="button" value="Potvrdi" class='potvrdi'>

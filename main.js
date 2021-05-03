@@ -42,6 +42,9 @@ function kreirajDiv(divPodaci) {
 
     para.appendChild(paratekst);
     block.appendChild(para);
+console.log(jabuka.checked)
+if (localStorage.getItem('divCollection') === null)
+{
 
     if (jabuka.checked) {
         block.append(slikaj);
@@ -54,6 +57,22 @@ function kreirajDiv(divPodaci) {
     if (limun.checked) {
         block.append(slikal);
         block.style.backgroundColor = divPodaci.limun;
+    }}
+    else {
+        if (jabuka) {
+            block.append(slikaj);
+            block.style.backgroundColor = divPodaci.jabuka;
+        }
+        if (kruska) {
+            block.append(slikak);
+            block.style.backgroundColor = divPodaci.kruska;
+        }
+        if (limun) {
+            block.append(slikal);
+            block.style.backgroundColor = divPodaci.limun;
+        }
+
+
     }
 }
 
