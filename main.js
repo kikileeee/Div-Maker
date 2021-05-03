@@ -27,14 +27,6 @@ function kreirajDiv(divPodaci) {
     block.className = 'block';
     document.querySelector("#prostor").append(block);
     block.style.backgroundColor = divPodaci.boja;
-
-    let slikaj = document.createElement('img');
-    slikaj.src = 'img/jabuka.png'
-    let slikak = document.createElement('img');
-    slikak.src = 'img/kruska.png'
-    let slikal = document.createElement('img');
-    slikal.src = 'img/limun.png'
-
     let para = document.createElement('p');
     let paratekst = document.createTextNode(divPodaci.komentar);
     block.style.width = divPodaci.sirina;
@@ -42,39 +34,16 @@ function kreirajDiv(divPodaci) {
 
     para.appendChild(paratekst);
     block.appendChild(para);
-console.log(jabuka.checked)
-if (localStorage.getItem('divCollection') === null)
-{
 
-    if (jabuka.checked) {
-        block.append(slikaj);
-        block.style.backgroundColor = divPodaci.jabuka;
-    }
-    if (kruska.checked) {
-        block.append(slikak);
-        block.style.backgroundColor = divPodaci.kruska;
-    }
-    if (limun.checked) {
-        block.append(slikal);
-        block.style.backgroundColor = divPodaci.limun;
-    }}
-    else {
-        if (jabuka) {
-            block.append(slikaj);
-            block.style.backgroundColor = divPodaci.jabuka;
-        }
-        if (kruska) {
-            block.append(slikak);
-            block.style.backgroundColor = divPodaci.kruska;
-        }
-        if (limun) {
-            block.append(slikal);
-            block.style.backgroundColor = divPodaci.limun;
-        }
+    for (n = 0; n < 3; n++) {
+        if ((Object.values(divCollection[i].voce))[n]) {
 
-
+            let slika = document.createElement('img');
+            slika.src = 'img/' + ((Object.keys(divCollection[i].voce))[n]) + '.png';
+            block.appendChild(slika);
+        }
     }
-}
+};
 
 // Potvrdi button
 document.querySelector(".potvrdi").addEventListener("click", e => {
@@ -82,9 +51,11 @@ document.querySelector(".potvrdi").addEventListener("click", e => {
     let divPodaci = {
         sirina: document.getElementById('width').value + 'px',
         duzina: document.getElementById('height').value + 'px',
-        jabuka: document.getElementById('jabuka').checked,
-        kruska: document.getElementById('kruska').checked,
-        limun: document.getElementById('limun').checked,
+        voce: {
+            jabuka: document.getElementById('jabuka').checked,
+            kruska: document.getElementById('kruska').checked,
+            limun: document.getElementById('limun').checked,
+        },
         boja: document.getElementById('boje').value,
         komentar: document.getElementById('komentar').value
     };
