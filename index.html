@@ -18,6 +18,12 @@
             background-repeat: no-repeat;
         }
 
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
         .divforme form {
             display: flex;
             flex-direction: column;
@@ -28,7 +34,6 @@
             border-radius: 15px;
             justify-content: space-between;
             box-shadow: -4px 10px 24px -11px rgba(0, 0, 0, 0.75);
-            background-color: rgba(44, 44, 44, 0.6);
             transition: 300ms ease-in-out;
         }
 
@@ -44,6 +49,7 @@
 
         .divforme textarea {
             border-radius: 15px;
+            resize: none;
         }
 
         .checkbox {
@@ -63,6 +69,7 @@
             background-color: rgb(44, 44, 44);
             transition: 300ms ease-in-out;
             color: azure;
+            border: greenyellow 1px solid;
         }
 
         .potvrdi:hover,
@@ -76,6 +83,7 @@
             margin: 10px;
             flex-wrap: wrap;
         }
+
         .block {
             width: 100px;
             height: 100px;
@@ -100,7 +108,8 @@
             padding: 10px;
             margin: 0;
             word-wrap: break-word;
-            
+            font-weight: bolder;
+
 
         }
 
@@ -114,6 +123,17 @@
         .dugmat {
             display: flex;
             flex-wrap: wrap;
+        }
+
+        input,
+        textarea,
+        select {
+            background-color: rgb(44, 44, 44);
+            border: greenyellow 1px solid;
+            color: white;
+        }
+        li {
+            background-color: rgb(44, 44, 44);
         }
     </style>
 </head>
@@ -146,7 +166,7 @@
             </div>
 
             <label for="komentar">Napisite jedinstveni id:</label>
-            <textarea name="komentar" id="komentar" cols="30" rows="10"></textarea>
+            <textarea name="komentar" id="komentar" cols="30" rows="5"></textarea>
             <div class="dugmat">
                 <input type="button" value="Potvrdi" class='potvrdi'>
                 <button class="brisi" value="brisi">Obrisi</button>
