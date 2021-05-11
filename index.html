@@ -64,7 +64,8 @@
         }
 
         .potvrdi,
-        .brisi {
+        .brisi,
+        .citat {
             min-width: 20%;
             margin: 10px auto auto auto;
             padding: 20px;
@@ -76,7 +77,8 @@
         }
 
         .potvrdi:hover,
-        .brisi:hover {
+        .brisi:hover,
+        .citat:hover {
             transform: scale(1.1);
             cursor: pointer;
         }
@@ -143,7 +145,7 @@
         li {
             background-color: rgb(44, 44, 44);
         }
-        @media only screen and (max-width: 800px) {
+        @media only screen and (max-width: 900px) {
             .divforme form{
                 width: 90%;
             }
@@ -182,6 +184,7 @@
             <textarea name="komentar" id="komentar" cols="30" rows="5"></textarea>
             <div class="dugmat">
                 <input type="button" value="Potvrdi" class='potvrdi'>
+                <button class="citat" value="citat">Novi Citat</button>
                 <button class="brisi" value="brisi">Obrisi</button>
             </div>
         </form>

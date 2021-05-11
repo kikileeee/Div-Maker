@@ -68,3 +68,11 @@ $('.brisi')[0].addEventListener("click", e => {
     localStorage.clear();
     $('#prostor')[0].innerHTML ='';
 });
+
+// Citat button
+
+$('.citat')[0].addEventListener('click', e =>{
+    console.log(fetch('https://goquotes-api.herokuapp.com/api/v1/random?count='))
+    e.preventDefault()
+    
+})
