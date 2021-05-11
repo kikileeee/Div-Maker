@@ -25,7 +25,7 @@ function sacuvajULocalStorage(divPodaci) {
 function kreirajDiv(divPodaci) {
     let block = document.createElement('li');
     block.className = 'block';
-    document.querySelector("#prostor").append(block);
+    $('#prostor')[0].append(block);
     block.style.backgroundColor = divPodaci.boja;
     let para = document.createElement('p');
     let paratekst = document.createTextNode(divPodaci.komentar);
@@ -46,24 +46,25 @@ function kreirajDiv(divPodaci) {
 };
 
 // Potvrdi button
-document.querySelector(".potvrdi").addEventListener("click", e => {
+$('.potvrdi')[0].addEventListener("click", e => {
     // Take values from from, create div on page and save it to localStorage
     let divPodaci = {
-        sirina: document.getElementById('width').value + 'px',
-        duzina: document.getElementById('height').value + 'px',
+        sirina: $('#width')[0].value + 'px',
+        duzina: $('#height')[0].value + 'px',
         voce: {
-            jabuka: document.getElementById('jabuka').checked,
-            kruska: document.getElementById('kruska').checked,
-            limun: document.getElementById('limun').checked,
+            jabuka: $('#jabuka')[0].checked,
+            kruska: $('#kruska')[0].checked,
+            limun: $('#limun')[0].checked
         },
-        boja: document.getElementById('boje').value,
-        komentar: document.getElementById('komentar').value
+        boja: $('#boje')[0].value,
+        komentar: $('#komentar')[0].value
     };
     sacuvajULocalStorage(divPodaci);
 });
 
 // Brisi button
-document.querySelector('.brisi').addEventListener("click", e => {
+
+$('.brisi')[0].addEventListener("click", e => {
     localStorage.clear();
-    document.getElementById('prostor').innerHTML = '';
+    $('#prostor')[0].innerHTML ='';
 });
