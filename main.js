@@ -72,7 +72,10 @@ $('.brisi')[0].addEventListener("click", e => {
 // Citat button
 
 $('.citat')[0].addEventListener('click', e =>{
-    console.log(fetch('https://goquotes-api.herokuapp.com/api/v1/random?count='))
     e.preventDefault()
-    
+    let randomNumber = Math.floor(Math.random() * 100) + 1;
+    // Takes all quotes from API and then takes one random grom array and display it
+    fetch('https://goquotes-api.herokuapp.com/api/v1/all/quotes')
+    .then(response => response.json())
+    .then(data => console.log(data));
 })

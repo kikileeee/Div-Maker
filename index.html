@@ -67,7 +67,7 @@
         .brisi,
         .citat {
             min-width: 20%;
-            margin: 10px auto auto auto;
+            margin: 20px auto 20px auto;
             padding: 20px;
             border-radius: 15px;
             background-color: rgb(44, 44, 44);
@@ -150,10 +150,35 @@
                 width: 90%;
             }
         }
+        .prozorCitata{
+            margin-top: 10px;
+            width: 80%;
+            min-height: 100px;
+            background-color: rgb(44, 44, 44);
+            border: greenyellow 1px solid;
+            color: white;
+            text-align: center;
+            margin: auto;
+            border-radius: 10px;
+        }
+        .textCitata{
+            font-style: italic;
+        }
+        .textCitata:before, .textCitata:after {
+    content: '"';
+}
+    .autorCitata{
+        float: right;
+        padding-right: 20px;
+        padding-bottom: 10px;
+        color: darkgray;
+    }
+
     </style>
 </head>
 
 <body>
+
     <div class="divforme">
         <form action="">
             <label for="width">Sirina</label>
@@ -186,6 +211,10 @@
                 <input type="button" value="Potvrdi" class='potvrdi'>
                 <button class="citat" value="citat">Novi Citat</button>
                 <button class="brisi" value="brisi">Obrisi</button>
+            </div>
+            <div class="prozorCitata">
+                <p class="textCitata">Quote</p>
+                <p class="autorCitata">Author</p>
             </div>
         </form>
 
