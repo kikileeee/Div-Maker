@@ -71,11 +71,21 @@ $('.brisi')[0].addEventListener("click", e => {
 
 // Citat button
 
+
 $('.citat')[0].addEventListener('click', e =>{
-    e.preventDefault()
+    e.preventDefault() 
     let randomNumber = Math.floor(Math.random() * 100) + 1;
-    // Takes all quotes from API and then takes one random grom array and display it
-    fetch('https://goquotes-api.herokuapp.com/api/v1/all/quotes')
+    // Takes all quotes from API and then takes one random from array and display it
+
+    async function uzmiCitat(){
+    await fetch('https://goquotes-api.herokuapp.com/api/v1/all/quotes')
     .then(response => response.json())
-    .then(data => console.log(data));
+    .then(data => console.log(data.quotes[randomNumber])
+    )
+    let citat = data.quotes[randomNumber].text
+    let autor = data.quotes[randomNumber].author
+    $('.textCitata')[0].innerHTML = citat
+    $('autorCitata')[0].innerHTML = autor
+    }
+    uzmiCitat()
 })
