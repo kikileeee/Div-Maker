@@ -4,6 +4,8 @@ for (i = 0; i < divCollection.length; i++) {
     kreirajDiv(divCollection[i]);
 
 }
+// Load quote 
+kreirajCitat()
 
 function sacuvajULocalStorage(divPodaci) {
     let pravi = true;
@@ -44,6 +46,14 @@ function kreirajDiv(divPodaci) {
         }
     }
 };
+function kreirajCitat() {
+    $.get('https://goquotes-api.herokuapp.com/api/v1/random?count=1', function (data) {
+        let autor = data.quotes[0].author
+        let citat = data.quotes[0].text
+        $('.textCitata')[0].innerHTML = citat
+        $('.autorCitata')[0].innerHTML = autor
+    })
+}
 
 // Potvrdi button
 $('.potvrdi')[0].addEventListener("click", e => {
@@ -66,34 +76,13 @@ $('.potvrdi')[0].addEventListener("click", e => {
 
 $('.brisi')[0].addEventListener("click", e => {
     localStorage.clear();
-    $('#prostor')[0].innerHTML ='';
+    $('#prostor').fadeOut()
+    $('#prostor')[0].innerHTML = '';
 });
 
 // Citat button
 
-
-$('.citat')[0].addEventListener('click', e =>{
-    e.preventDefault() 
-    let randomNumber = Math.floor(Math.random() * 100) + 1;
-    // Takes all quotes from API and then takes one random from array and display it
-
-    // async function uzmiCitat(){
-    // await fetch('https://goquotes-api.herokuapp.com/api/v1/all/quotes')
-    // .then(response => response.json())
-    // .then(data => console.log(data.quotes[randomNumber])
-    // )
-    // let citat = data.quotes[randomNumber].text
-    // let autor = data.quotes[randomNumber].author
-    // $('.textCitata')[0].innerHTML = citat
-    // $('autorCitata')[0].innerHTML = autor
-    // }
-    // uzmiCitat()
-    $.get('https://goquotes-api.herokuapp.com/api/v1/all/quotes', function(data){
-        let autor = data.quotes[randomNumber].author
-        let citat = data.quotes[randomNumber].text
-        console.log(data.quotes[randomNumber])
-        console.log(data.quotes[randomNumber].author)
-    $('.textCitata')[0].innerHTML = citat
-    $('.autorCitata')[0].innerHTML = autor
-       });
-})
+$('.citat')[0].addEventListener('click', e => {
+    e.preventDefault()
+    kreirajCitat()
+});
