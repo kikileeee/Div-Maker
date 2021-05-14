@@ -77,15 +77,23 @@ $('.citat')[0].addEventListener('click', e =>{
     let randomNumber = Math.floor(Math.random() * 100) + 1;
     // Takes all quotes from API and then takes one random from array and display it
 
-    async function uzmiCitat(){
-    await fetch('https://goquotes-api.herokuapp.com/api/v1/all/quotes')
-    .then(response => response.json())
-    .then(data => console.log(data.quotes[randomNumber])
-    )
-    let citat = data.quotes[randomNumber].text
-    let autor = data.quotes[randomNumber].author
+    // async function uzmiCitat(){
+    // await fetch('https://goquotes-api.herokuapp.com/api/v1/all/quotes')
+    // .then(response => response.json())
+    // .then(data => console.log(data.quotes[randomNumber])
+    // )
+    // let citat = data.quotes[randomNumber].text
+    // let autor = data.quotes[randomNumber].author
+    // $('.textCitata')[0].innerHTML = citat
+    // $('autorCitata')[0].innerHTML = autor
+    // }
+    // uzmiCitat()
+    $.get('https://goquotes-api.herokuapp.com/api/v1/all/quotes', function(data){
+        let autor = data.quotes[randomNumber].author
+        let citat = data.quotes[randomNumber].text
+        console.log(data.quotes[randomNumber])
+        console.log(data.quotes[randomNumber].author)
     $('.textCitata')[0].innerHTML = citat
-    $('autorCitata')[0].innerHTML = autor
-    }
-    uzmiCitat()
+    $('.autorCitata')[0].innerHTML = autor
+       });
 })
