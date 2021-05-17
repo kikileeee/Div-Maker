@@ -79,7 +79,7 @@ $('.brisi')[0].addEventListener("click", e => {
     localStorage.clear()
     divCollection = JSON.parse(localStorage.getItem('divCollection')) || [];
     $('.block').fadeOut()
-    $('#prostor').innerHTML = ''
+    $('#prostor')[0].innerHTML = ''
     
 });
 
