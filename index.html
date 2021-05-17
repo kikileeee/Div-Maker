@@ -137,7 +137,8 @@
             border: greenyellow 1px solid;
             color: white;
         }
-        input[type=number]{
+
+        input[type=number] {
             height: 30px;
             border-radius: 10px;
         }
@@ -145,12 +146,14 @@
         li {
             background-color: rgb(44, 44, 44);
         }
+
         @media only screen and (max-width: 900px) {
-            .divforme form{
+            .divforme form {
                 width: 90%;
             }
         }
-        .prozorCitata{
+
+        .prozorCitata {
             margin-top: 10px;
             width: 80%;
             min-height: 100px;
@@ -161,19 +164,22 @@
             margin: auto;
             border-radius: 10px;
         }
-        .textCitata{
+
+        .textCitata {
             font-style: italic;
         }
-        .textCitata:before, .textCitata:after {
-    content: '"';
-}
-    .autorCitata{
-        float: right;
-        padding-right: 20px;
-        padding-bottom: 10px;
-        color: darkgray;
-    }
 
+        .textCitata:before,
+        .textCitata:after {
+            content: '"';
+        }
+
+        .autorCitata {
+            float: right;
+            padding-right: 20px;
+            padding-bottom: 10px;
+            color: darkgray;
+        }
     </style>
 </head>
 
@@ -188,14 +194,16 @@
             <input type="number" name="height" id="height">
 
             <label for="">Boja</label>
+
             <select name="" id="boje">
                 <option value="white">Bela</option>
                 <option value="blue">Plava</option>
                 <option value="red">Crvena</option>
                 <option value="green">Zelena</option>
-
-
             </select>
+
+            <label for="checkbox">Izaberite voce</label>
+
             <div class="checkbox">
                 <input type="checkbox" id="jabuka" name="jabuka">
                 <label for="jabuka">Jabuka</label>
@@ -204,7 +212,6 @@
                 <input type="checkbox" id="limun" name="limun">
                 <label for="limun">Limun</label>
             </div>
-
             <label for="komentar">Napisite jedinstveni id:</label>
             <textarea name="komentar" id="komentar" cols="30" rows="5"></textarea>
             <div class="dugmat">
@@ -213,8 +220,8 @@
                 <button class="brisi" value="brisi">Obrisi</button>
             </div>
             <div class="prozorCitata">
-                <p class="textCitata">Quote</p>
-                <p class="autorCitata">Author</p>
+                <p class="textCitata"></p>
+                <p class="autorCitata"></p>
             </div>
         </form>
         <div class="load"></div>

@@ -25,6 +25,7 @@ function sacuvajULocalStorage(divPodaci) {
 }
 
 function kreirajDiv(divPodaci) {
+    
     let block = document.createElement('li');
     block.className = 'block';
     $('#prostor')[0].append(block);
@@ -33,7 +34,6 @@ function kreirajDiv(divPodaci) {
     let paratekst = document.createTextNode(divPodaci.komentar);
     block.style.width = divPodaci.sirina;
     block.style.height = divPodaci.duzina;
-
     para.appendChild(paratekst);
     block.appendChild(para);
 
@@ -45,6 +45,8 @@ function kreirajDiv(divPodaci) {
             block.appendChild(slika);
         }
     }
+    $('.block').hide().fadeIn()
+    // $('.block').fadeIn()
 };
 function kreirajCitat() {
     $.get('https://goquotes-api.herokuapp.com/api/v1/random?count=1', function (data) {
@@ -73,11 +75,13 @@ $('.potvrdi')[0].addEventListener("click", e => {
 });
 
 // Brisi button
-
-$('.brisi')[0].addEventListener("click", e => {
-    localStorage.clear();
-    $('#prostor').fadeOut()
-    $('#prostor')[0].innerHTML = '';
+$('.brisi')[0].addEventListener("click", e => {   
+    localStorage.clear()
+    e.preventDefault()
+    $('.block').fadeOut('normal', function(){
+        $('#prostor').innerHTML = ''
+        location.reload();
+    })
 });
 
 // Citat button
