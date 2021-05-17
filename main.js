@@ -46,7 +46,6 @@ function kreirajDiv(divPodaci) {
         }
     }
     $('.block').hide().fadeIn()
-    // $('.block').fadeIn()
 };
 function kreirajCitat() {
     $.get('https://goquotes-api.herokuapp.com/api/v1/random?count=1', function (data) {
@@ -76,12 +75,12 @@ $('.potvrdi')[0].addEventListener("click", e => {
 
 // Brisi button
 $('.brisi')[0].addEventListener("click", e => {   
-    localStorage.clear()
     e.preventDefault()
-    $('.block').fadeOut('normal', function(){
-        $('#prostor').innerHTML = ''
-        location.reload();
-    })
+    localStorage.clear()
+    divCollection = JSON.parse(localStorage.getItem('divCollection')) || [];
+    $('.block').fadeOut()
+    $('#prostor').innerHTML = ''
+    
 });
 
 // Citat button
