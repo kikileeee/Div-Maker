@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forma</title>
+    <title>Div maker</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
@@ -180,6 +180,15 @@
             padding-bottom: 10px;
             color: darkgray;
         }
+        .colorInput{
+            padding: 10px;
+            border-radius: 10px;
+        }
+        #komentar{
+            text-align: center;
+            font-size: larger;
+            padding: 15px;
+        }
     </style>
 </head>
 
@@ -187,37 +196,37 @@
 
     <div class="divforme">
         <form action="">
-            <label for="width">Sirina</label>
+            <label for="width">Select width</label>
             <input type="number" name="width" id="width">
 
-            <label for="height">Visina</label>
+            <label for="height">Select highth</label>
             <input type="number" name="height" id="height">
 
-            <label for="">Boja</label>
+            <label for="color">Select an color</label>
 
-            <select name="" id="boje">
-                <option value="white">Bela</option>
-                <option value="blue">Plava</option>
-                <option value="red">Crvena</option>
-                <option value="green">Zelena</option>
+            <select name="color" id="boje" class="colorInput">
+                <option value="white">White</option>
+                <option value="blue">Blue</option>
+                <option value="red">Red</option>
+                <option value="green">Green</option>
             </select>
 
-            <label for="checkbox">Izaberite voce</label>
+            <label for="checkbox">Choose which fruits will be in the div</label>
 
             <div class="checkbox">
                 <input type="checkbox" id="jabuka" name="jabuka">
-                <label for="jabuka">Jabuka</label>
+                <label for="jabuka">Apple</label>
                 <input type="checkbox" id="kruska" name="kruska">
-                <label for="kruska">Kruska</label>
+                <label for="kruska">Pear</label>
                 <input type="checkbox" id="limun" name="limun">
-                <label for="limun">Limun</label>
+                <label for="limun">Lemon</label>
             </div>
-            <label for="komentar">Napisite jedinstveni id:</label>
-            <textarea name="komentar" id="komentar" cols="30" rows="5"></textarea>
+            <label for="komentar">Give this div an unique name</label>
+            <textarea name="komentar" id="komentar" cols="10" rows="2"></textarea>
             <div class="dugmat">
-                <input type="button" value="Potvrdi" class='potvrdi'>
-                <button class="citat" value="citat">Novi Citat</button>
-                <button class="brisi" value="brisi">Obrisi</button>
+                <input type="button" value="Make a div" class='potvrdi'>
+                <button class="citat" value="citat">Create a new quote</button>
+                <button class="brisi" value="brisi">Delete all divs</button>
             </div>
             <div class="prozorCitata">
                 <p class="textCitata"></p>

@@ -13,7 +13,7 @@ function sacuvajULocalStorage(divPodaci) {
     for (i = 0; i < divCollection.length; i++) {
         if (divCollection[i].komentar == divPodaci.komentar) {
             pravi = false;
-            alert('Taj id vec postoji!');
+            alert('Div with that name already exists!!');
             break;
         }
     }
